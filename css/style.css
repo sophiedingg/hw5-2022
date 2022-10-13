@@ -1,0 +1,183 @@
+/* Step 1: */
+
+@keyframes mymove {
+    from {width: 25px;}
+    to {width: 425px;}
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#logo {
+    animation-name: mymove;
+    animation-duration: 5s;
+}
+
+/* Step 2: Set font and background-image */
+
+body {
+    font-family: "Poppins", serif;
+    background: url(../images/concrete_seamless.png), #f1f1f1;
+}
+
+/* Step 3: Style header */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Step 4: Style nav_links class with flex */
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* Step 5: Style the links so that they have the same color even after they have been visited */
+
+a, a:visited {
+    color: initial;
+}
+
+/* Step 6: Styling only the header elements that are direct children of a card class */
+
+.card>header {
+    background: #288088;
+    border: #45ADAD solid 2px;
+    padding: 20px 0 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7:  Editing card class to have initial "size" of 450px and to match the example */
+
+.card {
+    flex-basis: 450px;
+    flex-direction: column;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+
+/* Step 8: Editing pricing class with flex to be centered both horizontally and vertically */
+
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Step 9: Styles images in the gallery class */
+
+.gallery img {
+    border: #50C7C7 solid 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step 10: Editing gallery class with flex */
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* horizontal */
+}
+
+/* When the screen-sze is greater than 900px */
+
+@media screen and (min-width: 900px) {
+
+    /* Step 11: Styling the header and nav_links class */
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Step 12: Styling the pricing and card classes */
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    .pricing {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Step 13: Modifying the header so that it always remains visible */
+    body>header {
+        position: sticky;
+        top: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Step 14: Logo class is not animated if prefers-reduced-motion is selected in the accessibility preferences */ 
+
+    #logo {
+        animation: none;
+    }
+}
+
+@media print {
+    /* Step 15: Change the font on your body to Arial with a backup value of Helvetica*/
+
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
+
+
+    /* Step 16: Removing the background image */
+
+    body {
+        background-image: none;
+    }
+
+    /* Step 17: Editing the nav and nav_links elements so that they are spaced according to the image */
+
+    nav {
+        width: 100%;
+    }
+
+    .nav_links {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* Step 18: Edit the pricing class so that the elements align along the bottom */
+    .pricing {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    /* Step 19: The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px */
+    .card {
+        border: solid #45ADDD 2px;
+        flex-basis: 325px;
+    }
+
+    /* Step 20: No part of the gallery is supposed to be visible */
+    .gallery, #gallery {
+        display: none;
+    }
+    
+    /* Step 21: Adding the thumbs up entity on the cards */
+    .card li:nth-child(2)::after {
+        content: "\1F44D";
+    }
+}
